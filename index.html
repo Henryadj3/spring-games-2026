@@ -312,6 +312,11 @@ function ranked(){return[0,1,2,3].map(i=>({i,pts:totPts(i)})).sort((a,b)=>b.pts-
 // ── ACTIONS ──
 function setPl(eid,r,ti,val){
   const rd=S.pl[eid][r];const prev=rd[ti];const nv=prev===val?null:val;
+  if(prev!==null && prev!==val){
+    const evName=EVENTS.find(x=>x.id===eid).name;
+    const confirmed=confirm('⚠️ Change score?\n\n'+S.teams[ti]+' is already set to '+PLACE_LABELS[prev-1]+' in '+evName+'.\n\nChange to '+PLACE_LABELS[val-1]+'?');
+    if(!confirmed)return;
+  }
   if(nv!==null)for(let t=0;t<4;t++)if(t!==ti&&rd[t]===nv)rd[t]=null;
   rd[ti]=nv;renderAll();if(nv)showToast(S.teams[ti]+' → '+PLACE_LABELS[nv-1]);
 }
