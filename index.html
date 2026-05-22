@@ -7,20 +7,18 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Spring Games 2026</title>
 <style>
-/* ── RESET & BASE ── */
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;}
 :root{
   --bg:#f0f2f5;--card:#ffffff;--card2:#f5f7fa;
   --border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.16);
   --text:#0f1117;--text2:#5a6278;--text3:#aab0c0;
   --danger:#e8304a;--warn:#d97706;--gold:#b45309;
-  --c0:#1d7fe8;--c1:#0fa860;--c2:#e84a2a;--c3:#c49a00;
   --nav-h:64px;--safe-bottom:env(safe-area-inset-bottom,0px);
 }
 html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;overflow-x:hidden;}
 body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 
-/* ── HEADER ── */
+/* HEADER */
 .hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 14px 10px;}
 .hdr-title{font-size:22px;font-weight:800;letter-spacing:-0.5px;line-height:1;}
 .hdr-sub{font-size:11px;color:var(--text2);font-weight:600;letter-spacing:0.04em;margin-top:2px;margin-bottom:10px;}
@@ -31,23 +29,23 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .hdr-sc-pts{font-size:22px;font-weight:800;line-height:1.1;}
 .hdr-sc-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
 
-/* ── BOTTOM NAV ── */
+/* BOTTOM NAV */
 .bnav{position:fixed;bottom:0;left:0;right:0;height:calc(var(--nav-h) + var(--safe-bottom));background:rgba(255,255,255,0.97);border-top:1px solid var(--border);display:flex;align-items:flex-start;z-index:200;}
 .bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;color:var(--text3);font-family:inherit;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;padding:12px 0 0;height:var(--nav-h);transition:color 0.15s;}
 .bnav-btn.active{color:var(--text);}
 .bnav-icon{font-size:20px;line-height:1;}
-.bnav-bar{position:absolute;top:0;left:0;height:2px;background:var(--c0);transition:left 0.25s cubic-bezier(.4,0,.2,1),width 0.25s cubic-bezier(.4,0,.2,1),background 0.25s;}
+.bnav-bar{position:absolute;top:0;left:0;height:2px;background:#1d7fe8;transition:left 0.25s cubic-bezier(.4,0,.2,1),width 0.25s cubic-bezier(.4,0,.2,1),background 0.25s;}
 
-/* ── PAGES ── */
+/* PAGES */
 .page{display:none;padding:14px 14px 0;animation:fadeUp 0.18s ease;}
 .page.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
-/* ── SECTION LABEL ── */
+/* SECTION LABEL */
 .sec-lbl{font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;display:flex;align-items:center;gap:8px;margin:0 0 10px;}
 .sec-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* ── LEADERBOARD ── */
+/* LEADERBOARD */
 .lb-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px;}
 .lb-row{display:flex;align-items:center;gap:12px;padding:13px 14px;border-bottom:1px solid var(--border);}
 .lb-row:last-child{border-bottom:none;}
@@ -60,7 +58,7 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .lb-pts{font-size:30px;font-weight:900;line-height:1;}
 .lb-pts-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
 
-/* ── TEAM CARDS ── */
+/* TEAM CARDS */
 .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
 .tc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;position:relative;overflow:hidden;}
 .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tc);}
@@ -68,7 +66,7 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .tc-pts{font-size:32px;font-weight:900;line-height:1.1;margin-top:6px;}
 .tc-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
 
-/* ── BREAKDOWN ── */
+/* BREAKDOWN */
 .breakdown-toggle{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:inherit;font-size:12px;font-weight:700;padding:11px;cursor:pointer;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:6px;text-transform:uppercase;letter-spacing:0.06em;}
 .breakdown-wrap{display:none;overflow-x:auto;background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;}
 .breakdown-wrap.open{display:block;}
@@ -80,7 +78,7 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .bdtbl tr:last-child td{border-bottom:none;}
 .bdtbl .tot-row td{background:var(--card2);font-weight:800;font-size:16px;}
 
-/* ── SCHEDULE ── */
+/* SCHEDULE */
 .sched-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px;}
 .sched-section{padding:8px 14px;font-size:10px;font-weight:700;color:#1d7fe8;text-transform:uppercase;letter-spacing:0.1em;background:rgba(29,127,232,0.06);border-bottom:1px solid var(--border);}
 .sched-section.aft{color:#0fa860;background:rgba(15,168,96,0.06);}
@@ -94,21 +92,20 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .sched-break-lbl{font-size:13px;font-weight:700;color:var(--gold);flex:1;}
 .sched-break-time{font-size:12px;color:var(--gold);font-weight:600;}
 
-/* ── POINTS REF ── */
+/* POINTS REF */
 .pts-ref{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
 .pts-pill{font-size:11px;font-weight:600;padding:5px 10px;border-radius:20px;background:var(--card2);border:1px solid var(--border);color:var(--text2);}
 
-/* ── EVENT CARDS ── */
+/* EVENT CARDS */
 .evt{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:10px;overflow:hidden;}
 .evt-hd{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
 .evt-ico{width:38px;height:38px;background:var(--card2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .evt-nm{font-size:15px;font-weight:700;flex:1;}
-.evt-time{font-size:10px;color:var(--text2);font-weight:600;white-space:nowrap;text-align:right;}
 .evt-badge{font-size:9px;font-weight:700;background:var(--card2);color:var(--text2);padding:4px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap;}
-.evt-note{padding:7px 14px;font-size:11px;color:var(--text2);background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);}
+.evt-note{padding:7px 14px;font-size:11px;color:var(--text2);background:rgba(0,0,0,0.02);border-bottom:1px solid var(--border);}
 .evt-body{padding:12px 14px;}
 
-/* ── ROUND / PLACEMENT ── */
+/* ROUND / PLACEMENT */
 .rnd{margin-bottom:12px;}
 .rnd:last-child{margin-bottom:0;}
 .rnd-lbl{font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
@@ -120,24 +117,34 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .pb.sel{color:#fff;border-color:transparent;}
 .pb:active{transform:scale(0.92);}
 
-/* ── EVENT TOTALS ── */
+/* EVENT TOTALS */
 .evt-tots{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
 .et-cell{background:var(--card2);border-radius:8px;padding:7px 3px;text-align:center;}
 .et-pts{font-size:18px;font-weight:800;line-height:1;}
 .et-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
 
-/* ── STRIKE TRACKER ── */
+/* FAULT SECTION inside event */
+.fault-sec{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+.fault-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px;}
+.fault-cell{background:#fff5f5;border:1px solid rgba(232,48,74,0.15);border-radius:10px;padding:8px 4px;text-align:center;transition:border-color 0.2s;}
+.fault-cell.has-fault{border-color:rgba(232,48,74,0.4);background:#fff0f2;}
+.fault-nm{font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px;}
+.fault-ded{font-size:10px;font-weight:600;color:var(--danger);margin-top:3px;min-height:14px;}
+
+/* COUNTER */
+.ctr{display:flex;align-items:center;justify-content:center;gap:3px;}
+.ctr-btn{width:28px;height:28px;border-radius:6px;border:1px solid var(--border2);background:var(--card);color:var(--text);font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.1s;font-family:inherit;}
+.ctr-btn:active{transform:scale(0.88);}
+.ctr-val{font-size:22px;font-weight:800;min-width:22px;text-align:center;}
+
+/* STRIKE TRACKER */
 .strike-sec{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
 .strike-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px;}
 .st-cell{background:var(--card2);border-radius:10px;padding:8px 4px;text-align:center;border:1px solid var(--border);}
 .st-nm{font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px;}
-.ctr{display:flex;align-items:center;justify-content:center;gap:3px;}
-.ctr-btn{width:28px;height:28px;border-radius:6px;border:1px solid var(--border2);background:var(--card);color:var(--text);font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.1s;font-family:inherit;}
-.ctr-btn:active{transform:scale(0.88);}
-.ctr-val{font-size:24px;font-weight:800;min-width:22px;text-align:center;}
 .st-ded{font-size:10px;color:var(--danger);margin-top:2px;font-weight:600;}
 
-/* ── PENALTY PAGE ── */
+/* FOULS PAGE */
 .pen-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:10px;}
 .pen-hd{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
 .pen-ico{font-size:22px;flex-shrink:0;}
@@ -150,7 +157,18 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .pen-nm{font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px;}
 .pen-ded{font-size:10px;font-weight:600;margin-top:3px;min-height:15px;}
 
-/* ── DED SUMMARY ── */
+/* FAULT SUMMARY TABLE */
+.fault-summary{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:10px;}
+.fault-summary-hd{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.ftbl{width:100%;border-collapse:collapse;font-size:12px;}
+.ftbl th{padding:7px 10px;font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border);background:var(--card2);text-align:center;}
+.ftbl th:first-child{text-align:left;}
+.ftbl td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:center;font-size:12px;}
+.ftbl td:first-child{text-align:left;font-size:11px;color:var(--text2);}
+.ftbl tr:last-child td{border-bottom:none;}
+.ftbl .tot-row td{background:var(--card2);font-weight:800;}
+
+/* TOTAL DEDUCTIONS */
 .ded-summary{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:6px 0 10px;}
 .ded-hd{padding:10px 14px;border-bottom:1px solid var(--border);font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.08em;}
 .ded-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border);}
@@ -159,7 +177,7 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .ded-name{flex:1;font-size:14px;font-weight:600;}
 .ded-pts{font-size:24px;font-weight:800;line-height:1;}
 
-/* ── FOUL LOG ── */
+/* FOUL LOG */
 .foul-log{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-top:8px;}
 .foul-log-title{font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
 .foul-log-empty{font-size:12px;color:var(--text3);font-style:italic;}
@@ -170,15 +188,15 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 .foul-entry-ded{font-size:11px;font-weight:700;color:var(--danger);}
 .foul-del{background:none;border:none;color:var(--text3);font-size:14px;cursor:pointer;padding:2px 4px;font-family:inherit;}
 
-/* ── TOAST ── */
-.toast{position:fixed;bottom:calc(var(--nav-h) + var(--safe-bottom) + 12px);left:50%;transform:translateX(-50%) translateY(20px);background:var(--card2);border:1px solid var(--border2);border-radius:30px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;z-index:999;opacity:0;transition:all 0.2s;pointer-events:none;}
+/* TOAST */
+.toast{position:fixed;bottom:calc(var(--nav-h) + var(--safe-bottom) + 12px);left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a2e;border-radius:30px;padding:9px 18px;font-size:13px;font-weight:600;color:#fff;white-space:nowrap;z-index:999;opacity:0;transition:all 0.2s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<div class="hdr" id="hdr">
+<div class="hdr">
   <div class="hdr-title">⚡ Spring Games 2026</div>
   <div class="hdr-sub">22 May · Building 20 Soccer Pitch</div>
   <div class="hdr-scores" id="hdrScores"></div>
@@ -206,7 +224,7 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
       <div style="font-size:12px;font-weight:700;">💾 Auto-saved</div>
       <div style="font-size:11px;color:var(--text3);margin-top:2px;">Scores survive closing or refreshing</div>
     </div>
-    <button onclick="resetAll()" style="background:rgba(255,77,106,0.12);border:1px solid rgba(255,77,106,0.3);border-radius:8px;color:var(--danger);font-family:inherit;font-size:12px;font-weight:700;padding:8px 14px;cursor:pointer;flex-shrink:0;">Reset All</button>
+    <button onclick="resetAll()" style="background:rgba(232,48,74,0.1);border:1px solid rgba(232,48,74,0.3);border-radius:8px;color:var(--danger);font-family:inherit;font-size:12px;font-weight:700;padding:8px 14px;cursor:pointer;flex-shrink:0;">Reset All</button>
   </div>
 </div>
 
@@ -223,18 +241,18 @@ body{padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);}
 </div>
 
 <div class="page" id="page-fouls">
-  <div class="sec-lbl">⚠️ Penalty Offences</div>
-  <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;">Track fouls and unsporting behaviour. All deductions apply automatically to team totals.</p>
+  <div class="sec-lbl">⚠️ Cards & Penalties</div>
+  <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;">Yellow and Red Cards apply to the whole event day, not a specific game. Faults are tracked per event inside each event card.</p>
   <div id="penaltySection"></div>
 </div>
 
 <!-- BOTTOM NAV -->
-<nav class="bnav" id="bnav">
+<nav class="bnav">
   <div class="bnav-bar" id="bnavBar"></div>
   <button class="bnav-btn active" id="nb-lb" onclick="goPage('lb',0)"><span class="bnav-icon">🏆</span><span>Standings</span></button>
   <button class="bnav-btn" id="nb-schedule" onclick="goPage('schedule',1)"><span class="bnav-icon">📅</span><span>Schedule</span></button>
   <button class="bnav-btn" id="nb-events" onclick="goPage('events',2)"><span class="bnav-icon">🎮</span><span>Events</span></button>
-  <button class="bnav-btn" id="nb-fouls" onclick="goPage('fouls',3)"><span class="bnav-icon">⚠️</span><span>Fouls</span></button>
+  <button class="bnav-btn" id="nb-fouls" onclick="goPage('fouls',3)"><span class="bnav-icon">⚠️</span><span>Cards</span></button>
 </nav>
 
 <div class="toast" id="toast"></div>
@@ -245,103 +263,143 @@ const PLACE_LABELS=['1st','2nd','3rd','4th'];
 const SCORE={1:5,2:3,3:2,4:1};
 const NAV_COLORS=['#1d7fe8','#1d7fe8','#0fa860','#e8304a'];
 
-// Updated event order: races in morning, strength/skill in afternoon
 const EVENTS=[
-  {id:'tunnel',   name:'Tunnel Race',              ico:'🚇',s:'morning',  r:3, time:'9:25 – 9:50'},
-  {id:'hula',     name:'Hula Hoop Race',            ico:'⭕',s:'morning',  r:3, time:'9:55 – 10:20'},
-  {id:'zigzag',   name:'Zigzag Race',               ico:'🔀',s:'morning',  r:3, time:'10:25 – 10:45'},
-  {id:'athletics',name:'Athletics (Mixed Relay)',   ico:'🏃',s:'morning',  r:3, time:'10:50 – 11:05'},
-  {id:'bpop',     name:'Balloon Popping Race',      ico:'🎈',s:'morning',  r:3, time:'11:10 – 11:25'},
-  {id:'bthrow',   name:'Water Balloon Throw',       ico:'💧',s:'morning',  r:3, time:'11:30 – 11:55', strikes:true},
-  {id:'tug',      name:'Tug of War',               ico:'💪',s:'afternoon',r:1, time:'14:30 – 14:55', note:'Bracket format · score final placement'},
-  {id:'arm',      name:'Arm Wrestling',            ico:'🤜',s:'afternoon',r:1, time:'15:00 – 15:30', note:'Bracket format · score final placement'},
-  {id:'penkick',  name:'Penalty Kick',             ico:'⚽',s:'afternoon',r:2, time:'15:35 – 15:55', rlabels:['Short Kicks','Long Kicks']},
-  {id:'musical',  name:'Musical Chairs',           ico:'🎵',s:'afternoon',r:3, time:'16:00 – 16:20'},
-  {id:'shakira',  name:'Shakira Event',            ico:'🌀',s:'afternoon',r:3, time:'16:25 – 16:50'},
+  {id:'tunnel',    name:'Tunnel Race',             ico:'🚇',s:'morning',  r:3, time:'9:25 – 9:50'},
+  {id:'hula',      name:'Hula Hoop Race',           ico:'⭕',s:'morning',  r:3, time:'9:55 – 10:20'},
+  {id:'zigzag',    name:'Zigzag Race',              ico:'🔀',s:'morning',  r:3, time:'10:25 – 10:45'},
+  {id:'athletics', name:'Athletics (Mixed Relay)',  ico:'🏃',s:'morning',  r:3, time:'10:50 – 11:05'},
+  {id:'bpop',      name:'Balloon Popping Race',     ico:'🎈',s:'morning',  r:3, time:'11:10 – 11:25'},
+  {id:'bthrow',    name:'Water Balloon Throw',      ico:'💧',s:'morning',  r:3, time:'11:30 – 11:55', strikes:true},
+  {id:'tug',       name:'Tug of War',              ico:'💪',s:'afternoon',r:1, time:'14:30 – 14:55', note:'Bracket format · score final placement'},
+  {id:'arm',       name:'Arm Wrestling',           ico:'🤜',s:'afternoon',r:1, time:'15:00 – 15:30', note:'Bracket format · score final placement'},
+  {id:'penkick',   name:'Penalty Kick',            ico:'⚽',s:'afternoon',r:2, time:'15:35 – 15:55', rlabels:['Short Kicks','Long Kicks']},
+  {id:'musical',   name:'Musical Chairs',          ico:'🎵',s:'afternoon',r:3, time:'16:00 – 16:20'},
+  {id:'shakira',   name:'Shakira Event',           ico:'🌀',s:'afternoon',r:1, time:'16:25 – 16:50'},
 ];
 
-const FOULTYPES=[
-  {id:'yellow',label:'Yellow Card',    ico:'🟨',color:'#b45309',pts:1, desc:'Minor foul / unsporting behaviour · −1 pt each'},
-  {id:'red',   label:'Red Card',       ico:'🟥',color:'#e84a2a',pts:3, desc:'Serious violation / disqualified from round · −3 pts each'},
-  {id:'time',  label:'Time Penalty',   ico:'⏱️',color:'#1d7fe8',pts:2, desc:'Late start or deliberate delay · −2 pts each'},
-  {id:'cheat', label:'Cheating',       ico:'🚫',color:'#7c3aed',pts:5, desc:'Rule exploitation or unsanctioned shortcut · −5 pts each'},
+// Yellow and Red are general (Fouls page only)
+const CARDTYPES=[
+  {id:'yellow', label:'Yellow Card', ico:'🟨', color:'#b45309', pts:2, desc:'Individual deliberate misconduct / attitude · −2 pts each'},
+  {id:'red',    label:'Red Card',    ico:'🟥', color:'#e84a2a', pts:5, desc:'Whole team misbehaviour / refusing to comply · −5 pts each'},
 ];
 
 const SCHEDULE=[
   {type:'section', label:'MORNING SESSION', cls:''},
-  {type:'event',   num:1,  ico:'🎉', name:'Opening Ceremony',       time:'9:00 – 9:20'},
-  {type:'event',   num:2,  ico:'🚇', name:'Tunnel Race',            time:'9:25 – 9:50'},
-  {type:'event',   num:3,  ico:'⭕', name:'Hula Hoop Race',          time:'9:55 – 10:20'},
-  {type:'event',   num:4,  ico:'🔀', name:'Zigzag Race',             time:'10:25 – 10:45'},
-  {type:'event',   num:5,  ico:'🏃', name:'Athletics (Mixed Relay)', time:'10:50 – 11:05'},
-  {type:'event',   num:6,  ico:'🎈', name:'Balloon Popping Race',    time:'11:10 – 11:25'},
-  {type:'event',   num:7,  ico:'💧', name:'Water Balloon Throw',     time:'11:30 – 11:55'},
-  {type:'buffer',  label:'Buffer / Cool Down',  time:'11:55 – 12:15'},
-  {type:'lunch',   label:'🍽️  LUNCH BREAK',     time:'12:15 – 14:30'},
-  {type:'section', label:'AFTERNOON SESSION',   cls:'aft'},
-  {type:'event',   num:8,  ico:'💪', name:'Tug of War',             time:'14:30 – 14:55'},
-  {type:'event',   num:9,  ico:'🤜', name:'Arm Wrestling',          time:'15:00 – 15:30'},
-  {type:'event',   num:10, ico:'⚽', name:'Penalty Kick',           time:'15:35 – 15:55'},
-  {type:'event',   num:11, ico:'🎵', name:'Musical Chairs',         time:'16:00 – 16:20'},
-  {type:'event',   num:12, ico:'🌀', name:'Shakira Event',          time:'16:25 – 16:50'},
-  {type:'awards',  label:'🏆  Awards & Closing Ceremony', time:'16:55 – 17:25'},
+  {type:'event', num:1,  ico:'🎉', name:'Opening Ceremony',       time:'9:00 – 9:20'},
+  {type:'event', num:2,  ico:'🚇', name:'Tunnel Race',            time:'9:25 – 9:50'},
+  {type:'event', num:3,  ico:'⭕', name:'Hula Hoop Race',          time:'9:55 – 10:20'},
+  {type:'event', num:4,  ico:'🔀', name:'Zigzag Race',             time:'10:25 – 10:45'},
+  {type:'event', num:5,  ico:'🏃', name:'Athletics (Mixed Relay)', time:'10:50 – 11:05'},
+  {type:'event', num:6,  ico:'🎈', name:'Balloon Popping Race',    time:'11:10 – 11:25'},
+  {type:'event', num:7,  ico:'💧', name:'Water Balloon Throw',     time:'11:30 – 11:55'},
+  {type:'buffer', label:'Buffer / Cool Down', time:'11:55 – 12:15'},
+  {type:'lunch',  label:'🍽️  LUNCH BREAK',    time:'12:15 – 14:30'},
+  {type:'section', label:'AFTERNOON SESSION', cls:'aft'},
+  {type:'event', num:8,  ico:'💪', name:'Tug of War',             time:'14:30 – 14:55'},
+  {type:'event', num:9,  ico:'🤜', name:'Arm Wrestling',          time:'15:00 – 15:30'},
+  {type:'event', num:10, ico:'⚽', name:'Penalty Kick',           time:'15:35 – 15:55'},
+  {type:'event', num:11, ico:'🎵', name:'Musical Chairs',         time:'16:00 – 16:20'},
+  {type:'event', num:12, ico:'🌀', name:'Shakira Event',          time:'16:25 – 16:50'},
+  {type:'awards', label:'🏆  Awards & Closing Ceremony', time:'16:55 – 17:25'},
 ];
 
+// State
 const S={
   teams:['TEAM RED','TEAM YELLOW','TEAM GREEN','TEAM BLUE'],
-  pl:{},strikes:[0,0,0,0],fouls:{},foulLog:[],
+  pl:{},
+  strikes:[0,0,0,0],
+  // faults[eventId][teamIndex] = count
+  faults:{},
+  // cards[cardTypeId][teamIndex] = count
+  cards:{},
+  foulLog:[],
 };
-EVENTS.forEach(e=>{S.pl[e.id]={};for(let r=0;r<e.r;r++)S.pl[e.id][r]=[null,null,null,null];});
-FOULTYPES.forEach(f=>{S.fouls[f.id]=[0,0,0,0];});
+
+EVENTS.forEach(e=>{
+  S.pl[e.id]={};
+  for(let r=0;r<e.r;r++) S.pl[e.id][r]=[null,null,null,null];
+  S.faults[e.id]=[0,0,0,0];
+});
+CARDTYPES.forEach(c=>{ S.cards[c.id]=[0,0,0,0]; });
 
 let curPage='lb', bdOpen=false;
 
 // ── SCORING ──
 function evPts(eid,ti){
   const e=EVENTS.find(x=>x.id===eid);
-  let s=0;for(let r=0;r<e.r;r++){const p=S.pl[eid][r][ti];if(p)s+=SCORE[p];}return s;
+  let s=0;for(let r=0;r<e.r;r++){const p=S.pl[e.id][r][ti];if(p)s+=SCORE[p];}return s;
+}
+function totalFaultDed(ti){
+  return EVENTS.reduce((a,e)=>a+(S.faults[e.id][ti]||0),0)*1; // −1 per fault
+}
+function totalCardDed(ti){
+  return CARDTYPES.reduce((a,c)=>a+(S.cards[c.id][ti]||0)*c.pts,0);
+}
+function strikeDed(ti){
+  return Math.floor(S.strikes[ti]/3)*3;
 }
 function penaltyDed(ti){
-  const fouls=FOULTYPES.reduce((a,f)=>a+S.fouls[f.id][ti]*f.pts,0);
-  const strikes=Math.floor(S.strikes[ti]/3)*3;
-  return fouls+strikes;
+  return totalFaultDed(ti)+totalCardDed(ti)+strikeDed(ti);
 }
-function totPts(ti){return Math.max(0,EVENTS.reduce((a,e)=>a+evPts(e.id,ti),0)-penaltyDed(ti));}
-function ranked(){return[0,1,2,3].map(i=>({i,pts:totPts(i)})).sort((a,b)=>b.pts-a.pts);}
+function totPts(ti){
+  return Math.max(0,EVENTS.reduce((a,e)=>a+evPts(e.id,ti),0)-penaltyDed(ti));
+}
+function ranked(){
+  const sorted=[0,1,2,3].map(i=>({i,pts:totPts(i)})).sort((a,b)=>b.pts-a.pts);
+  let rank=1;
+  for(let k=0;k<sorted.length;k++){
+    if(k>0&&sorted[k].pts<sorted[k-1].pts) rank=k+1;
+    sorted[k].rank=rank;
+    sorted[k].tied=sorted.some((x,j)=>j!==k&&x.pts===sorted[k].pts);
+  }
+  return sorted;
+}
 
 // ── ACTIONS ──
 function setPl(eid,r,ti,val){
   const rd=S.pl[eid][r];const prev=rd[ti];const nv=prev===val?null:val;
-  if(prev!==null && prev!==val){
+  if(prev!==null&&prev!==val){
     const evName=EVENTS.find(x=>x.id===eid).name;
-    const confirmed=confirm('⚠️ Change score?\n\n'+S.teams[ti]+' is already set to '+PLACE_LABELS[prev-1]+' in '+evName+'.\n\nChange to '+PLACE_LABELS[val-1]+'?');
-    if(!confirmed)return;
+    if(!confirm('⚠️ Change score?\n\n'+S.teams[ti]+' is already set to '+PLACE_LABELS[prev-1]+' in '+evName+'.\n\nChange to '+PLACE_LABELS[val-1]+'?'))return;
   }
-  if(nv!==null)for(let t=0;t<4;t++)if(t!==ti&&rd[t]===nv)rd[t]=null;
+  if(nv!==null&&eid!=='shakira')for(let t=0;t<4;t++)if(t!==ti&&rd[t]===nv)rd[t]=null;
   rd[ti]=nv;renderAll();if(nv)showToast(S.teams[ti]+' → '+PLACE_LABELS[nv-1]);
 }
 function adjStrike(ti,d){S.strikes[ti]=Math.max(0,S.strikes[ti]+d);renderAll();}
-function adjFoul(fid,ti,d){
-  const prev=S.fouls[fid][ti];S.fouls[fid][ti]=Math.max(0,prev+d);
-  if(d>0&&S.fouls[fid][ti]>prev){
-    const ft=FOULTYPES.find(x=>x.id===fid);
+function adjFault(eid,ti,d){
+  const prev=S.faults[eid][ti];
+  S.faults[eid][ti]=Math.max(0,prev+d);
+  if(d>0&&S.faults[eid][ti]>prev){
+    const evName=EVENTS.find(x=>x.id===eid).name;
     const now=new Date();
     const ts=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
-    S.foulLog.unshift({ts,team:ti,fid,label:ft.label,pts:ft.pts});
-    if(S.foulLog.length>30)S.foulLog.pop();
-    showToast(ft.ico+' '+ft.label+' — '+S.teams[ti]);
+    S.foulLog.unshift({ts,team:ti,type:'fault',label:'Fault',evName,pts:1});
+    if(S.foulLog.length>40)S.foulLog.pop();
+    showToast('⚠️ Fault — '+S.teams[ti]+' ('+evName+')');
+  }
+  renderAll();
+}
+function adjCard(cid,ti,d){
+  const prev=S.cards[cid][ti];
+  S.cards[cid][ti]=Math.max(0,prev+d);
+  if(d>0&&S.cards[cid][ti]>prev){
+    const ct=CARDTYPES.find(x=>x.id===cid);
+    const now=new Date();
+    const ts=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+    S.foulLog.unshift({ts,team:ti,type:cid,label:ct.label,evName:'General',pts:ct.pts});
+    if(S.foulLog.length>40)S.foulLog.pop();
+    showToast(ct.ico+' '+ct.label+' — '+S.teams[ti]);
   }
   renderAll();
 }
 function delLog(idx){S.foulLog.splice(idx,1);renderFouls();}
 
-// ── NAVIGATION ──
+// ── NAV ──
 function goPage(id,idx){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   document.getElementById('nb-'+id).classList.add('active');
-  curPage=id;
   const bar=document.getElementById('bnavBar');
   bar.style.left=(100/4*idx)+'%';bar.style.width=(100/4)+'%';
   bar.style.background=NAV_COLORS[idx];
@@ -359,7 +417,6 @@ function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
 }
-
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 // ── HEADER ──
@@ -369,21 +426,22 @@ function renderHdr(){
     <div class="hdr-sc" style="--tc:${TC[t.i]}">
       <div class="hdr-sc-name">${esc(S.teams[t.i])}</div>
       <div class="hdr-sc-pts">${t.pts}</div>
-      <div class="hdr-sc-lbl">pts</div>
+      <div class="hdr-sc-lbl">${t.tied?'tied '+t.rank+getSuffix(t.rank):'pts'}</div>
     </div>`).join('');
 }
+function getSuffix(n){return n===1?'st':n===2?'nd':n===3?'rd':'th';}
 
 // ── LEADERBOARD ──
 function renderLb(){
   const rk=ranked();
-  const rankCls=['p1','p2','p3','p4'];
-  const medals=['🥇','🥈','🥉','4️⃣'];
-  document.getElementById('fullLb').innerHTML=rk.map((t,i)=>{
+  const rankCls={1:'p1',2:'p2',3:'p3',4:'p4'};
+  document.getElementById('fullLb').innerHTML=rk.map((t)=>{
     const ded=penaltyDed(t.i);
+    const cls=rankCls[t.rank]||'p4';
     return`<div class="lb-row">
-      <div class="lb-rank ${rankCls[i]}">${i+1}</div>
+      <div class="lb-rank ${cls}">${t.rank}</div>
       <div class="lb-info">
-        <div class="lb-name" style="color:${TC[t.i]}">${esc(S.teams[t.i])}</div>
+        <div class="lb-name" style="color:${TC[t.i]}">${esc(S.teams[t.i])}${t.tied?'<span style="display:inline-block;font-size:9px;font-weight:800;background:var(--text3);color:#fff;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:0.05em;">TIE</span>':''}</div>
         <div class="lb-deduct">${ded>0?'−'+ded+' pts penalty':'No penalties'}</div>
       </div>
       <div class="lb-pts-wrap">
@@ -395,7 +453,7 @@ function renderLb(){
   document.getElementById('teamCards').innerHTML=[0,1,2,3].map(i=>`
     <div class="tc" style="--tc:${TC[i]}">
       <input class="tc-input" value="${esc(S.teams[i])}" placeholder="Team name"
-        oninput="S.teams[${i}]=this.value;renderAll();" aria-label="Team ${i+1} name">
+        oninput="S.teams[${i}]=this.value;renderAll();">
       <div class="tc-pts" style="color:${TC[i]}">${totPts(i)}</div>
       <div class="tc-lbl">total pts</div>
     </div>`).join('');
@@ -404,10 +462,13 @@ function renderLb(){
 // ── BREAKDOWN ──
 function renderBD(){
   const thead=`<tr><th style="text-align:left;">Event</th>${[0,1,2,3].map(i=>`<th style="color:${TC[i]}">${esc(S.teams[i])}</th>`).join('')}</tr>`;
-  const rows=EVENTS.map(ev=>`<tr><td>${ev.ico} ${ev.name}</td>${[0,1,2,3].map(i=>`<td>${evPts(ev.id,i)||'—'}</td>`).join('')}</tr>`).join('');
-  const dedRow=`<tr><td style="color:var(--danger)">⚠️ Penalties</td>${[0,1,2,3].map(i=>`<td style="color:var(--danger)">−${penaltyDed(i)}</td>`).join('')}</tr>`;
+  const erows=EVENTS.map(ev=>`<tr><td>${ev.ico} ${ev.name}</td>${[0,1,2,3].map(i=>`<td>${evPts(ev.id,i)||'—'}</td>`).join('')}</tr>`).join('');
+  const frow=`<tr><td style="color:#7c3aed">⚠️ Faults</td>${[0,1,2,3].map(i=>`<td style="color:#7c3aed">−${totalFaultDed(i)}</td>`).join('')}</tr>`;
+  const yrow=`<tr><td style="color:#b45309">🟨 Yellow Cards</td>${[0,1,2,3].map(i=>`<td style="color:#b45309">−${(S.cards['yellow'][i]||0)*2}</td>`).join('')}</tr>`;
+  const rrow=`<tr><td style="color:#e84a2a">🟥 Red Cards</td>${[0,1,2,3].map(i=>`<td style="color:#e84a2a">−${(S.cards['red'][i]||0)*5}</td>`).join('')}</tr>`;
+  const srow=`<tr><td style="color:var(--danger)">⚡ Strikes</td>${[0,1,2,3].map(i=>`<td style="color:var(--danger)">−${strikeDed(i)}</td>`).join('')}</tr>`;
   const totRow=`<tr class="tot-row"><td>Total</td>${[0,1,2,3].map(i=>`<td style="color:${TC[i]}">${totPts(i)}</td>`).join('')}</tr>`;
-  document.getElementById('bdTbl').innerHTML=thead+rows+dedRow+totRow;
+  document.getElementById('bdTbl').innerHTML=thead+erows+frow+yrow+rrow+srow+totRow;
 }
 
 // ── SCHEDULE ──
@@ -436,6 +497,7 @@ function renderSession(session){
   const evts=EVENTS.filter(e=>e.s===session);
   document.getElementById(cid).innerHTML=evts.map(ev=>{
     const pts=[0,1,2,3].map(t=>evPts(ev.id,t));
+
     const rounds=Array.from({length:ev.r},(_,r)=>{
       const lbl=ev.rlabels?ev.rlabels[r]:`Round ${r+1}`;
       return`<div class="rnd">
@@ -447,8 +509,7 @@ function renderSession(session){
             <div class="place-btns">
               ${[1,2,3,4].map(pos=>`<button class="pb${cur===pos?' sel':''}"
                 style="${cur===pos?'background:'+TC[t]+';':''}"
-                onclick="setPl('${ev.id}',${r},${t},${pos})"
-                aria-pressed="${cur===pos}">${PLACE_LABELS[pos-1]}</button>`).join('')}
+                onclick="setPl('${ev.id}',${r},${t},${pos})">${PLACE_LABELS[pos-1]}</button>`).join('')}
             </div>
           </div>`;
         }).join('')}
@@ -462,6 +523,27 @@ function renderSession(session){
       </div>`).join('')}
     </div>`;
 
+    // Fault tracker — inside every event
+    const faultSec=`
+      <div class="fault-sec">
+        <div class="rnd-lbl">⚠️ Faults <span style="font-weight:400;color:var(--text2);text-transform:none;">(−1 pt each · accidental rule break)</span></div>
+        <div class="fault-grid">
+          ${[0,1,2,3].map(t=>{
+            const count=S.faults[ev.id][t]||0;
+            return`<div class="fault-cell${count>0?' has-fault':''}">
+              <div class="fault-nm" style="color:${TC[t]}">${esc(S.teams[t])}</div>
+              <div class="ctr">
+                <button class="ctr-btn" onclick="adjFault('${ev.id}',${t},-1)">−</button>
+                <span class="ctr-val" style="color:${count>0?'#e8304a':'var(--text)'}">${count}</span>
+                <button class="ctr-btn" onclick="adjFault('${ev.id}',${t},1)">+</button>
+              </div>
+              <div class="fault-ded">${count>0?'−'+count+' pts':''}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+
+    // Strike tracker — water balloon throw only
     const strikeSec=ev.strikes?`
       <div class="strike-sec">
         <div class="rnd-lbl">⚡ Strike Tracker <span style="font-weight:400;color:var(--text2);text-transform:none;">(3 strikes = −3 pts)</span></div>
@@ -488,38 +570,74 @@ function renderSession(session){
         <span class="evt-badge">${ev.r} ${ev.r===1?'Round':'Rounds'}</span>
       </div>
       ${ev.note?`<div class="evt-note">ℹ️ ${ev.note}</div>`:''}
-      <div class="evt-body">${rounds}${totals}${strikeSec}</div>
+      <div class="evt-body">${rounds}${totals}${faultSec}${strikeSec}</div>
     </div>`;
   }).join('');
 }
 
-// ── FOULS ──
+// ── FOULS PAGE ──
 function renderFouls(){
-  const penCards=FOULTYPES.map(ft=>{
-    const counts=S.fouls[ft.id];
-    return`<div class="pen-card">
+  // Yellow & Red card sections
+  const cardSections=CARDTYPES.map(ct=>`
+    <div class="pen-card">
       <div class="pen-hd">
-        <span class="pen-ico">${ft.ico}</span>
-        <div class="pen-title">${ft.label}</div>
-        <span class="pen-badge" style="background:${ft.color}22;color:${ft.color};border:1px solid ${ft.color}44;">−${ft.pts} pts</span>
+        <span class="pen-ico">${ct.ico}</span>
+        <div class="pen-title">${ct.label}</div>
+        <span class="pen-badge" style="background:${ct.color}22;color:${ct.color};border:1px solid ${ct.color}44;">−${ct.pts} pts</span>
       </div>
       <div class="pen-body">
-        <div class="pen-desc">${ft.desc}</div>
+        <div class="pen-desc">${ct.desc}</div>
         <div class="pen-grid">
-          ${[0,1,2,3].map(t=>`<div class="pen-cell" style="border-color:${counts[t]>0?ft.color:'var(--border)'}">
-            <div class="pen-nm" style="color:${TC[t]}">${esc(S.teams[t])}</div>
-            <div class="ctr">
-              <button class="ctr-btn" onclick="adjFoul('${ft.id}',${t},-1)">−</button>
-              <span class="ctr-val" style="color:${counts[t]>0?ft.color:'var(--text)'}">${counts[t]}</span>
-              <button class="ctr-btn" onclick="adjFoul('${ft.id}',${t},1)">+</button>
-            </div>
-            <div class="pen-ded" style="color:${ft.color}">${counts[t]>0?'−'+(counts[t]*ft.pts)+' pts':''}</div>
-          </div>`).join('')}
+          ${[0,1,2,3].map(t=>{
+            const count=S.cards[ct.id][t]||0;
+            return`<div class="pen-cell" style="border-color:${count>0?ct.color:'var(--border)'}">
+              <div class="pen-nm" style="color:${TC[t]}">${esc(S.teams[t])}</div>
+              <div class="ctr">
+                <button class="ctr-btn" onclick="adjCard('${ct.id}',${t},-1)">−</button>
+                <span class="ctr-val" style="color:${count>0?ct.color:'var(--text)'}">${count}</span>
+                <button class="ctr-btn" onclick="adjCard('${ct.id}',${t},1)">+</button>
+              </div>
+              <div class="pen-ded" style="color:${ct.color}">${count>0?'−'+(count*ct.pts)+' pts':''}</div>
+            </div>`;
+          }).join('')}
         </div>
       </div>
-    </div>`;
-  }).join('');
+    </div>`).join('');
 
+  // Fault summary table — breakdown by event
+  const faultRows=EVENTS.map(ev=>{
+    const counts=[0,1,2,3].map(t=>S.faults[ev.id][t]||0);
+    if(counts.every(c=>c===0))return'';
+    return`<tr>
+      <td>${ev.ico} ${ev.name}</td>
+      ${counts.map((c,t)=>`<td style="color:${c>0?TC[t]:'var(--text3)'}">${c>0?c:'—'}</td>`).join('')}
+    </tr>`;
+  }).filter(Boolean).join('');
+
+  const faultTotals=[0,1,2,3].map(t=>EVENTS.reduce((a,e)=>a+(S.faults[e.id][t]||0),0));
+  const faultSummary=`
+    <div class="fault-summary">
+      <div class="fault-summary-hd">
+        <span style="font-size:18px;">⚠️</span>
+        <span style="font-size:14px;font-weight:700;flex:1;">Fault Summary</span>
+        <span style="font-size:11px;color:var(--text2);">−1 pt each</span>
+      </div>
+      <table class="ftbl">
+        <thead><tr>
+          <th style="text-align:left;">Event</th>
+          ${[0,1,2,3].map(t=>`<th style="color:${TC[t]}">${esc(S.teams[t])}</th>`).join('')}
+        </tr></thead>
+        <tbody>
+          ${faultRows||`<tr><td colspan="5" style="color:var(--text3);font-style:italic;text-align:center;padding:12px;">No faults recorded yet</td></tr>`}
+        </tbody>
+        <tfoot><tr class="tot-row">
+          <td>Total faults</td>
+          ${faultTotals.map((c,t)=>`<td style="color:${c>0?TC[t]:'var(--text3)'}">${c}</td>`).join('')}
+        </tr></tfoot>
+      </table>
+    </div>`;
+
+  // Total deductions
   const dedSummary=`<div class="ded-summary">
     <div class="ded-hd">Total Deductions</div>
     ${[0,1,2,3].map(i=>`<div class="ded-row">
@@ -532,22 +650,24 @@ function renderFouls(){
     </div>`).join('')}
   </div>`;
 
+  // Foul log
   const logEntries=S.foulLog.length===0
     ?`<div class="foul-log-empty">No fouls recorded yet.</div>`
     :S.foulLog.map((e,idx)=>`<div class="foul-entry">
         <span class="foul-entry-time">${e.ts}</span>
         <span class="foul-entry-text" style="color:${TC[e.team]}">${S.teams[e.team]}</span>
-        <span class="foul-entry-text">${FOULTYPES.find(f=>f.id===e.fid).ico} ${e.label}</span>
+        <span class="foul-entry-text">${e.type==='fault'?'⚠️ Fault ('+e.evName+')':e.label}</span>
         <span class="foul-entry-ded">−${e.pts}</span>
-        <button class="foul-del" onclick="delLog(${idx})" aria-label="Delete">✕</button>
+        <button class="foul-del" onclick="delLog(${idx})">✕</button>
       </div>`).join('');
 
   document.getElementById('penaltySection').innerHTML=
-    penCards+dedSummary+`<div class="foul-log"><div class="foul-log-title">📋 Foul Log</div>${logEntries}</div>`;
+    cardSections+faultSummary+dedSummary+
+    `<div class="foul-log"><div class="foul-log-title">📋 Foul Log</div>${logEntries}</div>`;
 }
 
 // ── SAVE / LOAD / RESET ──
-const SAVE_KEY='sg2026_v3';
+const SAVE_KEY='sg2026_v4';
 function saveState(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
 function loadState(){
   try{
@@ -556,8 +676,9 @@ function loadState(){
     if(saved.teams)S.teams=saved.teams;
     if(saved.pl)S.pl=saved.pl;
     if(saved.strikes)S.strikes=saved.strikes;
-    if(saved.fouls)S.fouls=saved.fouls;
     if(saved.foulLog)S.foulLog=saved.foulLog;
+    if(saved.faults)EVENTS.forEach(e=>{if(saved.faults[e.id])S.faults[e.id]=saved.faults[e.id];});
+    if(saved.cards)CARDTYPES.forEach(c=>{if(saved.cards[c.id])S.cards[c.id]=saved.cards[c.id];});
   }catch(e){}
 }
 function resetAll(){
